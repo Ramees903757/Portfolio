@@ -1,1 +1,10 @@
-import type { NextConfig } from "next";const nextConfig:NextConfig={output:'export'};export default nextConfig;
+import type { NextConfig } from "next";
+
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+
+const nextConfig: NextConfig = {
+  output: "export",
+  assetPrefix: isGitHubPages ? "/Portfolio" : "",
+};
+
+export default nextConfig;
