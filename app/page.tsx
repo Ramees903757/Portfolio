@@ -24,19 +24,18 @@ export default function Home(){
  return <>
  <a className="skip-link" href="#main">Skip to content</a>
  <header className="site-header"><nav className="container nav" aria-label="Main navigation">
- <a href="#home" className="brand" aria-label={profile.name+' home'}>MRU<span>{profile.name}</span></a>
+ <a href="#home" className="brand" aria-label={profile.name+' home'}><span className="brand-mark">MRU</span><span className="brand-copy"><strong>{profile.name}</strong><small>Data Analyst · Abu Dhabi</small></span></a>
  <button ref={menuButton} className="menu-button" onClick={()=>setMenu(!menu)} aria-expanded={menu} aria-controls="main-nav" aria-label={menu?'Close navigation':'Open navigation'}>{menu?<X size={22}/>:<Menu size={22}/>}</button>
  <div id="main-nav" className={'nav-links'+(menu?' is-open':'')}>{navigation.map(([label,id])=><a key={id} href={'#'+id} onClick={()=>setMenu(false)}>{label}</a>)}{profile.resume&&<a className="nav-resume" href={profile.resume} download>Resume <ArrowDown size={14}/></a>}</div>
  </nav></header>
- <main id="main"><div id="home" className="container"><section className="hero" aria-labelledby="hero-heading"><div>
- <div className="hero-location"><span className="eyebrow">MOHAMMED RAMEES UMMER</span><span><MapPin size={13}/>{profile.location}</span></div>
- <p className="professional-title">{profile.title}</p>
+ <main id="main"><div id="home" className="container"><section className="hero" aria-labelledby="hero-heading"><div className="hero-copy">
+ <div className="hero-location"><span className="eyebrow">ANALYTICS · REPORTING · DECISION SUPPORT</span></div>
+ <p className="professional-title">{profile.title}<span><MapPin size={13}/>{profile.location}</span></p>
  <h1 id="hero-heading">Turning sales and operational data into <em>clear business decisions.</em></h1>
  <p className="intro">{profile.introduction}</p>
  <div className="hero-actions"><a className="button" href="#work">View My Work <ArrowUpRight size={18}/></a>{profile.resume&&<a className="button secondary" href={profile.resume} download><FileText size={17}/>Download Resume</a>}</div>
- <Socials/>
- </div><aside className="evidence" aria-label="Resume-reported evidence"><p className="eyebrow">EXPERIENCE, IN NUMBERS</p>{profile.evidence.map(e=><article key={e.value}><strong>{e.value}</strong><h2>{e.label}</h2><p>{e.source}</p></article>)}<small>As reported in my resume.</small></aside></section>
- <p className="availability"><span className="status-dot" aria-hidden="true"/>{profile.availability}</p></div>
+ </div><aside className="profile-panel" aria-label="Professional profile and resume-reported evidence"><div className="portrait-frame"><img src="/mohammed-ramees-ummer.webp" alt="Professional portrait of Mohammed Ramees Ummer" width="900" height="900"/><span className="portrait-status"><span className="status-dot" aria-hidden="true"/>Open to analytics roles</span></div><div className="profile-summary"><p className="eyebrow">PROFILE</p><h2>Business-focused analytics</h2><p>Retail performance, MIS reporting, inventory analysis, and dashboard development.</p></div><div className="evidence"><p className="eyebrow">RESUME HIGHLIGHTS</p>{profile.evidence.map(e=><article key={e.value}><strong>{e.value}</strong><div><h3>{e.label}</h3><p>{e.source}</p></div></article>)}<small>Results attributed to their respective roles.</small></div></aside></section>
+ <div className="availability"><p><span className="status-dot" aria-hidden="true"/>{profile.availability}</p><Socials/></div></div>
  <section className="container section featured" id="work" aria-labelledby="featured-title"><div className="section-heading"><div><p className="eyebrow">01 / FEATURED PROJECT</p><h2 id="featured-title">A business question.<br/>A clearer view.</h2></div><p>Retail sales analysis, from data<br className="desktop-break"/> preparation to business reporting.</p></div>
  <article className="featured-card"><div className="project-cover">{featured.screenshots?.length?<img src={featured.screenshots[0].src} alt={featured.screenshots[0].alt}/>:<><div className="cover-top"><span>SALES ANALYTICS</span><span>01</span></div><div className="cover-title">Coffee Shop<br/>Sales Dashboard<span className="cover-rule"/></div><div className="cover-bottom"><span>Excel / SQL / Power BI / DAX</span><span>PROJECT STUDY</span></div></>}</div>
  <div className="featured-info"><p className="eyebrow">{featured.category}</p><h3>{featured.title}</h3><p>{featured.summary}</p><Tags items={featured.tools}/><div className="project-deliverable"><span>THE DELIVERABLE</span><p>An interactive dashboard for sales performance and key business KPIs.</p></div><ProjectLinks project={featured}/></div>

@@ -25,7 +25,7 @@ The deployable static website is in `dist/client`. Serve that directory with any
 
 Update `app/profile.ts`: profile, contact details, evidence, experience, skills, education, certification, project descriptions and optional assets are centralized there. Page markup is in `app/page.tsx`; responsive styling is in `app/globals.css`; metadata is in `app/layout.tsx`.
 
-Optional URLs, screenshots and resume are null until genuine assets are supplied. Dependent buttons and images are omitted. Add files to `public`, then set their paths in the data file. Screenshots require descriptive alt text. Phone display is controlled by `profile.contact.showPhone` and starts false.
+The supplied professional portrait is stored as an optimized WebP image in `public` and appears in the hero profile card. Optional project URLs, project screenshots and the resume remain null until genuine assets are supplied. Dependent buttons and project images are omitted. Add files to `public`, then set their paths in the data file. Screenshots require descriptive alt text. Phone display is controlled by `profile.contact.showPhone` and starts false.
 
 Case studies support keyboard operation, deep links such as `/#case-coffee-shop`, and browser Back/Forward. The contact action uses mailto; copy-email reports success or an honest fallback.
 
